@@ -1,0 +1,141 @@
+/* Variables para usar en el CSS */
+:root {
+    --background-color-dark: #1f1f1f;
+    --background-color-white: #FFFFFF;
+    --background-color-blue-one : #004965;
+    --background-color-ilumine: #C5C5C5;
+    --background-color-ilumine-dark: #151515;
+    --background-color-scrollbar: #969696;
+    --text-color-white: #FFFFFF;
+    --text-color-black: #000000;
+    --shadow-color-one: #070707;
+}
+
+/* Resetear estilos predeterminados */
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: 'Roboto', sans-serif;
+}
+
+body::-webkit-scrollbar {
+    width: 0.75rem;
+    background-color: var(--background-color-dark);
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: var(--background-color-ilumine);
+    border: 0.2rem solid;
+    border-radius: 0.5rem;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+    background-color: var(--background-color-scrollbar);
+    transition: all 1s;
+}
+
+/* Estilos para las secciones de Login*/
+
+.login-form {
+    background-color: black;
+}
+
+.bg-dark {
+    background-color: var(--background-color-dark) !important;
+}
+
+.bg-dark-header {
+    background-color: var(--background-color-ilumine-dark);
+}
+
+.shadow-header {
+    box-shadow: 0 0.20rem 0.20rem var(--shadow-color-one);
+}
+
+.btn-dark-one {
+    background-color: var(--background-color-ilumine-dark);
+    color: var(--text-color-white) !important;
+}
+
+.link-text {
+    width: 8.5rem;
+    border-radius: 0.5rem;
+    font-weight: 500 !important;
+    transition: 0.8s;
+}
+
+.link-text-large {
+    font-weight: 500 !important;
+    width: 10rem;
+}
+
+.link-text:hover {
+    background-color: var(--background-color-white);
+    color: var(--text-color-black) !important;
+    transition: 0.8s;
+}
+
+.form-control, .btn {
+    min-height: 2.5rem;
+    line-height: initial;
+    max-width: 25rem;
+}
+
+.btn {
+    transition: 0.8s;
+}
+
+.btn-large {
+    width: 10rem;
+    height: 2.5rem;
+    border-radius: 0.5rem;
+    transition: 0.8s;
+}
+
+.btn-small {
+    width: 7.5rem;
+    height: 2.5rem;
+    border-radius: 0.5rem;
+    transition: 0.8s;
+}
+
+.btn:hover, .btn-large:hover, .btn-large:hover, .text-hover:hover{
+    background-color: var(--background-color-ilumine-dark);
+    color: var(--text-color-white) !important;
+    transition: 0.8s;
+}
+
+.sidebar-container {
+    height: 100vh;
+}
+
+.sidebar-item:hover {
+    background-color: var(--background-color-white);
+    color: var(--text-color-black) !important;
+    transition: 0.8s;
+    transform: translateX(1rem);
+}
+
+.select-style {
+    height: 2.5rem;
+    width: 25rem;
+}
+
+.dropdown-item:hover {
+    color: var(--text-color-black) !important;
+}
+
+.f-size {
+    font-size: 0.85em;
+}
+
+.modal-lg {
+    width: 42rem !important;
+}

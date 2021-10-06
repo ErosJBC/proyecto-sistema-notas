@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/main.css" type="text/css">
+</head>
+
+<body>
+    <header class="container-fluid p-fixed m-0 p-0 sticky-top bg-dark-header shadow-header">
+        <nav class="navbar navbar-expand navbar-dark">
+            <div class="container-fluid nav justify-content-end navbar-text">
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown text-center">
+                        <a role="button" id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false"
+                            class="nav-link link-text-large text-white">
+                            <span class="link-text-large text-white">Eros Bazan</span>
+                            <i class="icon ion-md-power mx-3"></i>
+                        </a>
+                        <ul class="dropdown-menu bg-dark-header" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" role="button">Cambiar Contraseña</a></li>
+                            <li><a class="dropdown-item" role="button" data-bs-toggle="modal" data-bs-target="#logoutSession">Cerrar Sesión</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="modal fade" id="logoutSession" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="logoutSession">Aviso de Sesión</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p class="text-center">¿Está seguro que quiere cerrar sesión?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-dark" data-bs-dismiss="modal" id="btnLogout">Salir</button>
+                        <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Cancelar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2 d-flex flex-column">
+            <nav class="sidebar-container bg-dark">
+                <!-- Navbar content -->
+                <div>
+                    <h2 class="text-white fw-bold text-center py-4">¡Bienvenido, Eros!</h2>
+                </div>
+                <div>
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a class="nav-link text-white p-3 w-100 sidebar-item"
+                                href="../views/dashboard.html"><i class="icon ion-md-apps mx-3"></i>Dashboard</a></li>
+                        <li class="nav-item"><a class="nav-link text-white p-3 w-100 sidebar-item"
+                                href="../views/module-students.html"><i class="icon ion-md-person mx-3"></i>Alumnos</a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link text-white p-3 w-100 sidebar-item"
+                                href="../views/module-notes.html"><i class="icon ion-md-paper mx-3"></i>Notas</a></li>
+                        <li class="nav-item"><a class="nav-link text-white p-3 w-100 sidebar-item"
+                                href="../views/settings.html"><i class="icon ion-md-settings mx-3"></i>Configuración</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <div class="col-md-10">
+
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script src="../js/logout.js"></script>
+</body>
+
+</html>
