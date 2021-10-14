@@ -1,0 +1,11 @@
+Buenas noches, profesor!
+
+Me tomé el tiempo para poder hacer una validación más concisa de mi login. El usuario por defecto es "admin" y la contraseña también es "admin".
+También puede probar con otros usuarios, por ejemplo, pruebe con el usuario "alexv" y coloque cualquier contraseña, le botará que el usuario está inactivo.
+Prueba con el usuario "admin" pero con otra contraseña y le dirá que vuelva a ingresar las credenciales correctas. Pruebe con un usuario cualquiera y le
+dirá que no existe en el sistema. Tomé en cuenta esas validaciones.
+En relación a la tabla, me voy a reservar para la presentación final del proyecto al igual que el spinner sobre el login.
+
+Gracias!
+
+Link en la web: https://sistemadenotas.carpinteriayservicios.com/

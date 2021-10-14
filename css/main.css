@@ -43,10 +43,6 @@ body::-webkit-scrollbar-thumb:hover {
 
 /* Estilos para las secciones de Login*/
 
-.login-form {
-    background-color: black;
-}
-
 .bg-dark {
     background-color: var(--background-color-dark) !important;
 }
@@ -59,55 +55,12 @@ body::-webkit-scrollbar-thumb:hover {
     box-shadow: 0 0.20rem 0.20rem var(--shadow-color-one);
 }
 
-.btn-dark-one {
-    background-color: var(--background-color-ilumine-dark);
-    color: var(--text-color-white) !important;
-}
-
-.link-text {
-    width: 8.5rem;
-    border-radius: 0.5rem;
-    font-weight: 500 !important;
-    transition: 0.8s;
-}
-
-.link-text-large {
-    font-weight: 500 !important;
-    width: 10rem;
-}
-
-.link-text:hover {
-    background-color: var(--background-color-white);
-    color: var(--text-color-black) !important;
-    transition: 0.8s;
-}
-
-.form-control, .btn {
-    min-height: 2.5rem;
-    line-height: initial;
-    max-width: 25rem;
-}
-
 .btn {
     transition: 0.8s;
 }
 
-.btn-large {
-    width: 10rem;
-    height: 2.5rem;
-    border-radius: 0.5rem;
-    transition: 0.8s;
-}
-
-.btn-small {
-    width: 7.5rem;
-    height: 2.5rem;
-    border-radius: 0.5rem;
-    transition: 0.8s;
-}
-
-.btn:hover, .btn-large:hover, .btn-large:hover, .text-hover:hover{
-    background-color: var(--background-color-ilumine-dark);
+.btn:hover, .text-hover:hover{
+    background-color: var(--background-color-dark);
     color: var(--text-color-white) !important;
     transition: 0.8s;
 }
@@ -142,31 +95,21 @@ body::-webkit-scrollbar-thumb:hover {
 
 /* Spinner para login */
 
-.content{
-    width:100%;
-    height:100vh;
-    display:flex;
-    justify-content: center;
-    align-items: center;
+.spinner-border{
+    width: 10rem;
+    height: 10rem;
+    border:5px solid var(--background-color-ilumine-dark);
     background: transparent;
-}
-  
-.spinner{
-    width:100px;
-    height:100px;
-    border-radius:50%;
-    border:5px solid black;
-    background:transparent;
     border-top-color:#efef;
     border-bottom-color: #efef;
-    border-left-color: black;
+    border-left-color: var(--background-color-ilumine-dark);
     animation:spin 1.5s linear infinite;
-    position: relative;
 }
-  
+
 @keyframes spin{
     0%{
         background:transparent;
         transform: rotate(720deg); 
     }
 }
+

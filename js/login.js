@@ -6,6 +6,7 @@ const buttonLogin = document.getElementById('btnLogin');
 
 const getUser = async (username, password) => {
     const api = await fetch(`https://userdb-01-default-rtdb.firebaseio.com/users.json`);
+    console.log(api);
     const users = await api.json();
 
     console.log(users);
@@ -59,20 +60,16 @@ const validateLogin = (event) => {
     const username = frmLogin['inputUser'].value;
     const password = frmLogin['inputPassword'].value;
 
-    onload(username, password)
+    if (username != "" && password != "") {
+        onloadPage(username, password)
+    }else {
+        alert('Complete los campos vacíos')
+    }
+    
 }
 
-const onload = (username, password) => {
-
+const onloadPage = (username, password) => {
     getUser(username, password);
-
-    const spinner = `
-        <div class="content">
-            <div class="spinner position-relative">
-            </div>
-        </div>`
-    
-    document.getElementById('body').innerHTML = spinner;
 }
 
 buttonLogin.addEventListener('click', validateLogin);

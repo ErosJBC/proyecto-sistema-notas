@@ -1,0 +1,23 @@
+[
+    {
+        "user": "admin",
+        "password": "admin",
+        "active": 1,
+        "create_date": "2021-10-05",
+        "update_date": "null"
+    },
+    {
+        "user": "erosjbc",
+        "password": "erosjbc",
+        "active": 1,
+        "create_date": "2021-10-10",
+        "update_date": "null"
+    },
+    {
+        "user": "alexv",
+        "password": "alexv",
+        "active": 0,
+        "create_date": "2021-10-09",
+        "update_date": "2021-10-10"
+    }
+]

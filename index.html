@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistemas de Notas</title>
+    <title>Inicio | Sistemas de Notas</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
@@ -15,94 +15,103 @@
     <link rel="stylesheet" href="./css/main.css" type="text/css">
 </head>
 
-<body class="bg-dark" id="body">
-    <header class="container-fluid p-fixed m-md-0 p-md-0 sticky-top bg-dark-header shadow-header">
-        <nav class="navbar navbar-expand navbar-dark">
-            <div class="container-fluid nav justify-content-end navbar-text">
-                <ul class="navbar-nav navlist">
-                    <li class="nav-item text-center"><button class="border-0 btn-dark-one text-dark mx-2"><a
-                                class="nav-link link-text text-white" href="./index.html">Iniciar Sesión</a></button>
-                    </li>
-                    <li class="nav-item text-center"><button class="border-0 btn-dark-one text-dark mx-2"><a
-                                class="nav-link link-text text-white"
-                                href="./views/register.html">Registrarse</a></button></li>
-                </ul>
+<body id="body" class="bg-dark">
+    <main class="text-dark">
+        <div class="modal fade" id="modalSpinner" aria-hidden="true" aria-labelledby="exampleModalToggleLabel"
+            tabindex="-1">
+            <div class="modal-dialog modal-fullscreen">
+                <div class="modal-body">
+                    <div class="d-flex justify-content-center align-items-center vh-100">
+                        <div class="spinner-border" role="status">
+                            <span class="visually-hidden"></span>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </nav>
-    </header>
-    <main class="container-fluid p-md-0 m-md-0">
-        <section class="container-fluid p-0 m-0">
-            <div class="row p-md-0 m-md-0">
-                <div class="col-md-6 img-banner p-md-0 m-md-0">
-                    <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+        </div>
+        <div class="container w-75 mt-5 rounded shadow bg-light">
+            <div class="row align-items-stretch">
+                <div class="col d-none d-lg-block col-md-5 col-lg-5 col-xl-6 rounded">
+                    <div id="carouselImage" class="carousel slide carousel-fade" data-bs-ride="carousel">
                         <div class="carousel-inner">
-                            <div class="carousel-item img-1 active">
-                                <img src="./img/campus-1.jpg" class="d-block w-100" alt="...">
+                            <div class="carousel-item active">
+                                <img src="./img/campus-1.jpg" class="img-fluid my-5 my-md-5 w-100" alt="">
                             </div>
-                            <div class="carousel-item img-2">
-                                <img src="./img/aula-virtual.jpg" class="d-block w-100" alt="...">
+                            <div class="carousel-item">
+                                <img src="./img/aula-virtual.jpg" class="img-fluid my-5 my-md-5 w-100" alt="">
                             </div>
                         </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade"
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselImage"
                             data-bs-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                             <span class="visually-hidden">Previous</span>
                         </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade"
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselImage"
                             data-bs-slide="next">
                             <span class="carousel-control-next-icon" aria-hidden="true"></span>
                             <span class="visually-hidden">Next</span>
                         </button>
                     </div>
                 </div>
-                <div class="col-md-6 login-form bg-dark p-md-0 m-md-0">
-                    <div class="container-fluid py-3 my-5">
-                        <h2 class="text-white text-center fw-bold">Bienvenido al Sistemas de Notas</h2>
-                        <form id="frmLogin" class="mb-5">
-                            <div class="mb-4">
-                                <label for="inputUser" class="form-label fw-bold text-white">Usuario</label>
-                                <input type="email" class="form-control" placeholder="Ingresa tu usuario" id="inputUser"
-                                    aria-describedby="emailHelp">
-                            </div>
-                            <div class="mb-4">
-                                <label for="inputPassword" class="form-label fw-bold text-white">Contraseña</label>
-                                <input type="password" class="form-control" placeholder="Ingresa tu contraseña"
-                                    id="inputPassword">
-                                <div class="my-2">
-                                    <a href="#" id="emailHelp"
-                                        class="form-text text-muted text-decoration-none">¿Olvidaste tu contraseña?
-                                    </a>
-                                </div>
-                            </div>
-                            <button id="btnLogin" type="button" class="btn btn-light fw-bold w-100">Entrar</button>
-                        </form>
-                        <p class="fw-bold text-center text-white">O inicia sesión con</p>
-                        <div class="d-flex justify-content-around">
-                            <button type="submit"
-                                class="btn-outline-light btn-large text-dark fw-bold border-0 d-flex justify-content-center align-items-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                                    class="bi bi-google mx-1" viewBox="0 0 16 16">
-                                    <path
-                                        d="M15.545 6.558a9.42 9.42 0 0 1 .139 1.626c0 2.434-.87 4.492-2.384 5.885h.002C11.978 15.292 10.158 16 8 16A8 8 0 1 1 8 0a7.689 7.689 0 0 1 5.352 2.082l-2.284 2.284A4.347 4.347 0 0 0 8 3.166c-2.087 0-3.86 1.408-4.492 3.304a4.792 4.792 0 0 0 0 3.063h.003c.635 1.893 2.405 3.301 4.492 3.301 1.078 0 2.004-.276 2.722-.764h-.003a3.702 3.702 0 0 0 1.599-2.431H8v-3.08h7.545z" />
-                                </svg><span class="mx-1">Google</span></button>
+                <div class="col p-5 rounded-end">
+                    <h2 class="fw-bold text-center py-5">Bienvenido al Sistema de Notas</h2>
+                    <form id="frmLogin" action="#">
+                        <div class="mb-4">
+                            <label for="inputUser" class="form-label">Usuario</label>
+                            <input type="text" class="form-control" name="username" id="inputUser">
                         </div>
-                    </div>
-                    <div class="text-center py-3 my-3 p-md-0 m-md-0">
-                        <p class="d-inline-block mb-0 text-white px-1">¿Eres usuario nuevo?</p><a href="#"
-                            class="text-light text-decoration-none fw-bold px-1">Regístrate ahora</a>
+                        <div class="mb-4">
+                            <label for="inputPassword" class="form-label">Contraseña</label>
+                            <input type="password" class="form-control" name="password" id="inputPassword">
+                        </div>
+                        <div class="mb-4 form-check">
+                            <input type="checkbox" name="connected" class="form-check-input">
+                            <label for="connected" class="form-check-label">Recordarme la sesión</label>
+                        </div>
+                        <div class="d-grid">
+                            <a id="btnLogin" href="#modalSpinner" role="button" class="btn btn-outline-dark fw-bold"
+                                data-bs-toggle="modal"><span>Entrar</span></a>
+                        </div>
+
+                        <div class="my-4 text-center">
+                            <span>¿No tienes cuenta? <a class="text-decoration-none text-primary"
+                                    href="#">Registrarte</a></span>
+                            <br>
+                            <span><a class="text-decoration-none text-primary" href="#">¿Olvidaste tu
+                                    contraseña?</a></span>
+                        </div>
+                    </form>
+
+                    <div class="container w-100 my-4">
+                        <div class="row text-center my-3">
+                            <div class="col-12"><span>O Iniciar Sesión con</span></div>
+                        </div>
+                        <div class="row justify-content-center">
+                            <div class="col-md-6">
+                                <button class="btn btn-outline-dark w-100 my-1">
+                                    <div class="row align-items-center text-center">
+                                        <div class="col-md-12 px-0 d-md-block">
+                                            <svg class="" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                                fill="currentColor" class="bi bi-google mx-1" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M15.545 6.558a9.42 9.42 0 0 1 .139 1.626c0 2.434-.87 4.492-2.384 5.885h.002C11.978 15.292 10.158 16 8 16A8 8 0 1 1 8 0a7.689 7.689 0 0 1 5.352 2.082l-2.284 2.284A4.347 4.347 0 0 0 8 3.166c-2.087 0-3.86 1.408-4.492 3.304a4.792 4.792 0 0 0 0 3.063h.003c.635 1.893 2.405 3.301 4.492 3.301 1.078 0 2.004-.276 2.722-.764h-.003a3.702 3.702 0 0 0 1.599-2.431H8v-3.08h7.545z" />
+                                            </svg>
+                                            <span class="fw-bold">Google</span>
+                                        </div>
+                                    </div>
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
     </main>
-
-    <footer>
-
-    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> -->
     <script src="./js/Usuario.js"></script>
     <script src="./js/login.js"></script>
 </body>

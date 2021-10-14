@@ -50,10 +50,9 @@ facultades = {
 def getStudents(url_id, url_photo):
     resp = rq.get(url_id)
     data = json.loads(resp.content)
-    dictionaryStudents = {}
+    dictionaryStudents = []
     registro = {}
-    i = 1
-    with open('students.json', 'w') as file:
+    with open('students-c.json', 'w') as file:
         for d in data:
             if (d.get('codigo')[0:4] >= '2010'):
                 if (d.get('nombre') != '' and d.get('am') != '' and d.get('ap') != ''):
@@ -82,8 +81,14 @@ def getStudents(url_id, url_photo):
                         "surname" : d.get('ap'),
                         "second_surname": d.get('am'),
                         "names" : d.get('nombre'),
-                        "faculty" : [d.get('especialidad')[0], facultades[d.get('especialidad')[0]]],
-                        "speciality" : [d.get('especialidad'), especialidades[d.get('especialidad')]],
+                        "faculty" : {
+                            "id_faculty" : d.get('especialidad')[0],
+                            "name_faculty" : facultades[d.get('especialidad')[0]]
+                        },
+                        "speciality" : {
+                            "id_speciality" : d.get('especialidad'),
+                            "name_speciality" : especialidades[d.get('especialidad')]
+                        },
                         "cycle_relative" : cycle,
                         "approved_credits" : cred if cycle != "-" else 220,
                         "condition" : "ALUMNO REGULAR" if cycle != "-" else "EGRESADO",
@@ -91,17 +96,9 @@ def getStudents(url_id, url_photo):
                         "photo" : url_photo + d.get('codigo') + '.jpg'
                     }
 
-                    aux = {
-                        "{}".format(i): registro
-                    }
-                    dictionaryStudents.update(aux)
-                    i = i + 1
+                    dictionaryStudents.append(registro)
             else: break
 
-        content = {
-            "students" : dictionaryStudents
-        }
-
-        jsonDic = json.dumps(content)
+        jsonDic = json.dumps(dictionaryStudents)
         file.write(jsonDic)
         file.close()
