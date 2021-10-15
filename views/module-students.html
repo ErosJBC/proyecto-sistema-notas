@@ -12,77 +12,89 @@
         rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.0/font/bootstrap-icons.css">
     <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/main.css" type="text/css">
 </head>
 
 <body>
-    <header class="container-fluid p-fixed m-md-0 p-md-0 sticky-top bg-dark-header shadow-header">
-        <nav class="navbar navbar-expand navbar-dark">
-            <div class="container-fluid nav justify-content-end navbar-text">
-                <ul class="navbar-nav">
-                    <li class="nav-item dropdown text-center">
-                        <a role="button" id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false"
-                            class="nav-link link-text-large text-white">
-                            <span class="link-text-large text-white">Eros Bazan</span>
-                            <i class="icon ion-md-power mx-3"></i>
-                        </a>
-                        <ul class="dropdown-menu bg-dark-header" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" role="button">Cambiar Contraseña</a></li>
-                            <li><a class="dropdown-item" role="button" data-bs-toggle="modal"
-                                    data-bs-target="#logoutSession">Cerrar Sesión</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    </header>
-    <main>
-        <div class="modal fade" id="logoutSession" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="logoutSession">Aviso de Sesión</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <p class="text-center">¿Está seguro que quiere cerrar sesión?</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-dark" data-bs-dismiss="modal" id="btnLogout">Salir</button>
-                        <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Cancelar</button>
-                    </div>
+    <div id="sidebar" class="sidebar bg-dark-header">
+        <!-- Sidebar content -->
+        <div class="sidebar-header">
+            <div class="py-4 d-flex flex-column align-items-center justify-content-center">
+                <div class="user_image py-2">
+                    <img src="../img/photo_user.jpg" class="img-fluid img-rounded img-size">
+                </div>
+                <div class="d-flex flex-column py-2">
+                    <span class="text-center text-light fw-bold fs-5">Eros Bazan</span>
+                    <span class="text-center text-light fs-6">Administrator</span>
                 </div>
             </div>
         </div>
-        <div class="row p-md-0 m-md-0">
-            <div class="col-md-2 d-flex flex-column p-md-0 m-md-0">
-                <nav class="sidebar-container bg-dark p-md-0 m-md-0">
-                    <!-- Navbar content -->
-                    <div>
-                        <h2 class="text-white fw-bold text-center py-4">¡Bienvenido, Eros!</h2>
+        <div class="sidebar-body">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link text-white p-3 w-100 sidebar-item d-flex align-items-center"
+                        href="../views/dashboard.html"><i class="bi bi-grid-3x3-gap-fill mx-2 fs-5"></i><span
+                            class="mx-3">Dashboard</span></a></li>
+                <li class="nav-item"><a class="nav-link text-white p-3 w-100 sidebar-item d-flex align-items-center"
+                        href="../views/module-students.html"><i class="bi bi-person-fill mx-2 fs-5"></i><span
+                            class="mx-3">Alumnos</span></a>
+                </li>
+                <li class="nav-item"><a class="nav-link text-white p-3 w-100 sidebar-item d-flex align-items-center"
+                        href="../views/module-notes.html"><i class="bi bi-journal-check mx-2 fs-5"></i><span
+                            class="mx-3">Notas</span></a></li>
+                <li class="nav-item"><a class="nav-link text-white p-3 w-100 sidebar-item d-flex align-items-center"
+                        href="../views/settings.html"><i class="bi bi-gear-fill mx-2 fs-5"></i><span
+                            class="mx-3">Configuración</span></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div id="main-container" class="main-container bg-white">
+        <header class="p-fixed sticky-top bg-dark-header">
+            <nav class="navbar navbar-expand navbar-dark justify-content-between">
+                <div id="toogle-sidebar" class="toogle mx-4" role="button">
+                    <i class="icon ion-md-menu text-light fs-2"></i>
+                </div>
+                <div class="nav navbar-text">
+                    <ul class="navbar-nav">
+                        <li class="nav-item dropdown text-center">
+                            <a role="button" id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false"
+                                class="nav-link link-text-large text-white">
+                                <span class="link-text-large text-white">Eros Bazan</span>
+                                <i class="icon ion-md-power mx-3"></i>
+                            </a>
+                            <ul class="dropdown-menu bg-dark-header" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" role="button">Cambiar Contraseña</a></li>
+                                <li><a class="dropdown-item" role="button" data-bs-toggle="modal"
+                                        data-bs-target="#logoutSession">Cerrar Sesión</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <main class="p-3">
+            <div class="modal fade" id="logoutSession" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="logoutSession">Aviso de Sesión</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p class="text-center">¿Está seguro que quiere cerrar sesión?</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-dark" data-bs-dismiss="modal"
+                                id="btnLogout">Salir</button>
+                            <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Cancelar</button>
+                        </div>
                     </div>
-                    <div>
-                        <ul class="navbar-nav">
-                            <li class="nav-item"><a class="nav-link text-white p-3 w-100 sidebar-item"
-                                    href="../views/dashboard.html"><i class="icon ion-md-apps mx-3"></i>Dashboard</a>
-                            </li>
-                            <li class="nav-item"><a class="nav-link text-white p-3 w-100 sidebar-item"
-                                    href="../views/module-students.html"><i
-                                        class="icon ion-md-person mx-3"></i>Alumnos</a>
-                            </li>
-                            <li class="nav-item"><a class="nav-link text-white p-3 w-100 sidebar-item"
-                                    href="../views/module-notes.html"><i class="icon ion-md-paper mx-3"></i>Notas</a>
-                            </li>
-                            <li class="nav-item"><a class="nav-link text-white p-3 w-100 sidebar-item"
-                                    href="../views/settings.html"><i
-                                        class="icon ion-md-settings mx-3"></i>Configuración</a>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
+                </div>
             </div>
-            <div class="col-md-10">
+            <div class="">
                 <div class="row">
                     <div class="card-header">
                         <h2 class="text-center fs-2">Buscador de Alumnos</p>
@@ -110,23 +122,6 @@
                             <label for="inputSpeciality" class="form-label">Especialidad</label>
                             <input type="text" class="form-control" id="inputSpeciality">
                         </div>
-                        <!-- <div class="col-md-4">
-                            <label for="inputCycle" class="form-label">Ciclo Relativo</label>
-                            <select id="inputCycle" class="form-select select-style">
-                                <option selected>Seleccione</option>
-                                <option>1er ciclo</option>
-                                <option>2do ciclo</option>
-                                <option>3er ciclo</option>
-                                <option>4to ciclo</option>
-                                <option>5to ciclo</option>
-                                <option>6to ciclo</option>
-                                <option>7mo ciclo</option>
-                                <option>8vo ciclo</option>
-                                <option>9mo ciclo</option>
-                                <option>10mo ciclo</option>
-                                <option>11mo ciclo</option>
-                            </select>
-                        </div> -->
                         <div class="col-md-2 pt-4 mt-4 px-0 d-flex justify-content-center">
                             <button id="btnSearch" type="submit"
                                 class="btn btn-dark fw-bold btn-small text-center">Buscar</button>
@@ -154,7 +149,8 @@
                         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalToggleLabel">Información del Estudiante</h5>
+                                    <h5 class="modal-title" id="exampleModalToggleLabel">Información del Estudiante
+                                    </h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal"
                                         aria-label="Close"></button>
                                 </div>
@@ -177,9 +173,11 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </main>
+        </main>
+    </div>
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
@@ -187,6 +185,7 @@
     <script src="../js/logout.js"></script>
     <script src="../js/BuscadorAlumnos.js"></script>
     <script src="../js/search.js"></script>
+    <script src="../js/sidebar.js"></script>
 </body>
 
 </html>
