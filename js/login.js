@@ -30,7 +30,7 @@ const redirectDashboard = () => {
 };
 
 const redirectIndex = () => {
-    window.location.href = '../index.html';
+    window.location.href = './index.html';
 };
 
 const getUser = async (username, password) => {
