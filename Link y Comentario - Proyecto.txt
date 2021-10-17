@@ -1,10 +1,8 @@
 Buenas noches, profesor!
 
-Me tomé el tiempo para poder hacer una validación más concisa de mi login. El usuario por defecto es "admin" y la contraseña también es "admin".
-También puede probar con otros usuarios, por ejemplo, pruebe con el usuario "alexv" y coloque cualquier contraseña, le botará que el usuario está inactivo.
-Prueba con el usuario "admin" pero con otra contraseña y le dirá que vuelva a ingresar las credenciales correctas. Pruebe con un usuario cualquiera y le
-dirá que no existe en el sistema. Tomé en cuenta esas validaciones.
-En relación a la tabla, me voy a reservar para la presentación final del proyecto al igual que el spinner sobre el login.
+Mejoré algunas partes de mi login. Modifique las validaciones. Puede probar con los inputs. Solo pude implementar algunas animaciones en el módulo
+de dashboard, la verdad no he tenido una idea clara para completar las animaciones, a parte que lo intenté pero no me salía.
+La tabla de estudiante ya es navegable. Se puede avanzar y a la vez retroceder.
 
 Gracias!
 

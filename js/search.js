@@ -13,7 +13,7 @@ const getStudents = async () => {
 
     await axios({
         method: "get",
-        url: 'https://studentsapi-76cc7-default-rtdb.firebaseio.com/students.json'
+        url: 'https://students-api-01-default-rtdb.asia-southeast1.firebasedatabase.app/students.json'
     }).then(response => {
         const data = response.data;
 
