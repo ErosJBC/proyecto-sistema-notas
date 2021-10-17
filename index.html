@@ -12,16 +12,18 @@
         rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link rel="stylesheet" href="./css/main.css" type="text/css">
 </head>
 
 <body id="body" class="bg-dark">
-    <main class="text-dark">
+    <main id="main-page" class="text-dark">
         <div class="modal fade" id="modalSpinner" aria-hidden="true" aria-labelledby="exampleModalToggleLabel"
             tabindex="-1">
-            <div class="modal-dialog modal-fullscreen">
+            <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-body">
-                    <div class="d-flex justify-content-center align-items-center vh-100">
+                    <div class="d-flex justify-content-center align-items-center">
                         <div class="spinner-border" role="status">
                             <span class="visually-hidden"></span>
                         </div>
@@ -53,26 +55,35 @@
                         </button>
                     </div>
                 </div>
-                <div class="col p-5 rounded-end">
+                <div id="form-animate" class="col p-5 rounded-end">
                     <h2 class="fw-bold text-center py-5">Bienvenido al Sistema de Notas</h2>
                     <form id="frmLogin" action="#">
-                        <div class="mb-4">
+                        <div id="user" class="mb-4">
                             <label for="inputUser" class="form-label">Usuario</label>
                             <input type="text" class="form-control" name="username" id="inputUser">
+                            <span id="messageValidateUser"
+                                class="card bg-danger my-2 p-2 animate__animated animate__bounceInRight little-text text-light visually-hidden">El
+                                usuario solo debe contener letras y guiones bajos, mínimo 4 y máximo 15
+                                caracteres</span>
                         </div>
-                        <div class="mb-4">
+                        <div id="password" class="mb-4">
                             <label for="inputPassword" class="form-label">Contraseña</label>
                             <input type="password" class="form-control" name="password" id="inputPassword">
+                            <span id="messageValidatePassword"
+                                class="card bg-danger my-2 p-2 animate__animated animate__bounceInRight little-text text-light visually-hidden">La
+                                contraseña debe ser mínimo 4 caracteres y máximo 8 caracteres</span>
                         </div>
                         <div class="mb-4 form-check">
                             <input type="checkbox" name="connected" class="form-check-input">
                             <label for="connected" class="form-check-label">Recordarme la sesión</label>
                         </div>
                         <div class="d-grid">
-                            <a id="btnLogin" href="#modalSpinner" role="button" class="btn btn-outline-dark fw-bold"
-                                data-bs-toggle="modal"><span>Entrar</span></a>
+                            <button id="btnLogin" type="submit" class="btn btn-outline-dark fw-bold" data-bs-toggle="modal" data-bs-target="#modalSpinner"><span>Entrar</span></button>
                         </div>
-
+                        <div id="messageErrorInputs" class="card my-2 text-md-center bg-danger text-white visually-hidden">
+                            <span class="text-center p-md-1"><i class="bi bi-exclamation-triangle-fill mx-2 fs-5"></i><strong>Error:
+                                </strong>Complete todos los campos vacíos</span>
+                        </div>
                         <div class="my-4 text-center">
                             <span>¿No tienes cuenta? <a class="text-decoration-none text-primary"
                                     href="#">Registrarte</a></span>
@@ -108,12 +119,15 @@
         </div>
     </main>
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
-    <!-- <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> -->
     <script src="./js/Usuario.js"></script>
     <script src="./js/login.js"></script>
+    <!-- <script src="./js/jquery.js"></script> -->
 </body>
 
 </html>

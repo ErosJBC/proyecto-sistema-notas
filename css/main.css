@@ -42,6 +42,85 @@ body::-webkit-scrollbar-thumb:hover {
     transition: all 1s;
 }
 
+.spinner-preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    background: #FFFFFF none repeat scroll 0% 0%;
+    z-index: 99999;
+}
+
+.spinner-preloader .preloader {
+    display: block;
+    position: relative;
+    left: 50%;
+    top: 50%;
+    width: 150px;
+    height: 150px;
+    margin: -75px 0 0 -75px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: #bac6cc;
+    -webkit-animation: spin 2s linear infinite; /* Chrome, Opera 15+, Safari 5+ */
+    animation: spin 2s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */
+}
+
+.spinner-preloader .preloader:before {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: #4f4853;
+    -webkit-animation: spin 3s linear infinite; /* Chrome, Opera 15+, Safari 5+ */
+    animation: spin 3s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */
+}
+     
+.spinner-preloader .preloader:after {
+    content: "";
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: #050814;
+    -webkit-animation: spin-preload 1.5s linear infinite; /* Chrome, Opera 15+, Safari 5+ */
+    animation: spin-preload 1.5s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */
+}
+
+@-webkit-keyframes spin-preload {
+        0%   { 
+            -webkit-transform: rotate(0deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+            -ms-transform: rotate(0deg);  /* IE 9 */
+            transform: rotate(0deg);  /* Firefox 16+, IE 10+, Opera */
+        }
+        100% {
+            -webkit-transform: rotate(360deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+            -ms-transform: rotate(360deg);  /* IE 9 */
+            transform: rotate(360deg);  /* Firefox 16+, IE 10+, Opera */
+        }
+}
+@keyframes spin-preload {
+        0%   { 
+            -webkit-transform: rotate(0deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+            -ms-transform: rotate(0deg);  /* IE 9 */
+            transform: rotate(0deg);  /* Firefox 16+, IE 10+, Opera */
+        }
+        100% {
+            -webkit-transform: rotate(360deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+            -ms-transform: rotate(360deg);  /* IE 9 */
+            transform: rotate(360deg);  /* Firefox 16+, IE 10+, Opera */
+        }
+}
+
 /* Estilos para las secciones de Login*/
 
 .bg-dark {
@@ -56,21 +135,13 @@ body::-webkit-scrollbar-thumb:hover {
     box-shadow: 0 0.20rem 0.20rem var(--shadow-color-one);
 }
 
-.btn {
-    transition: 0.8s;
-}
-
-.btn:hover, .text-hover:hover{
+.text-hover:hover{
     background-color: var(--background-color-dark);
     color: var(--text-color-white) !important;
     transition: 0.8s;
 }
 
 .close {
-    margin-left: -15rem !important;
-}
-
-.show {
     margin-left: 4rem !important;
 }
 
@@ -80,21 +151,26 @@ body::-webkit-scrollbar-thumb:hover {
     top: 0;
     left: 0;
     position: fixed;
-    transition: all 0.8s ease;
+    transition: all 0.35s ease;
 }
 
 .main-container {
-    height: 100vh;
+    min-height: 100vh;
     margin-left: 18.5rem;
     padding: 0;
-    transition: all 0.8s ease;
+    transition: all 0.35s ease;
     position: relative;
+}
+
+.sidebar-item {
+    width: 100%;
 }
 
 .sidebar-item:hover {
     background-color: var(--background-color-white);
     color: var(--text-color-black) !important;
     transition: 0.8s;
+    border-left: 0.5rem solid var(--background-color-ilumine-dark);
 }
 
 .img-rounded {
@@ -116,6 +192,10 @@ body::-webkit-scrollbar-thumb:hover {
 
 .f-size {
     font-size: 0.85em;
+}
+
+.little-text {
+    font-size: 0.8rem;
 }
 
 .modal-lg {
@@ -142,3 +222,7 @@ body::-webkit-scrollbar-thumb:hover {
     }
 }
 
+.btn-mode:hover {
+    background-color: var(--background-color-white) !important;
+    color: var(--text-color-black) !important;
+}

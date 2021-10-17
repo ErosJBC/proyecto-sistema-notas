@@ -31,9 +31,10 @@
                 </div>
             </div>
         </div>
-        <div class="sidebar-body">
-            <ul class="navbar-nav">
-                <li class="nav-item"><a class="nav-link text-white p-3 w-100 sidebar-item d-flex align-items-center"
+        <div id="sidebar-body" class="sidebar-body">
+            <ul id="sidebar-nav" class="navbar-nav">
+                <li id="dashboard" class="nav-item"><a
+                        class="nav-link text-white p-3 w-100 sidebar-item d-flex align-items-center"
                         href="../views/dashboard.html"><i class="bi bi-grid-3x3-gap-fill mx-2 fs-5"></i><span
                             class="mx-3">Dashboard</span></a></li>
                 <li class="nav-item"><a class="nav-link text-white p-3 w-100 sidebar-item d-flex align-items-center"
@@ -75,18 +76,108 @@
             </nav>
         </header>
         <main class="p-3">
-
+            <div class="modal fade" id="logoutSession" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="logoutSession">Aviso de Sesión</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p class="text-center">¿Está seguro que quiere cerrar sesión?</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-dark" data-bs-dismiss="modal"
+                                id="btnLogout">Salir</button>
+                            <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Cancelar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="">
+                <div class="card">
+                    <div class="card-header text-md-center">
+                        <h2 class="card-title">Información General</h2>
+                    </div>
+                    <div class="card-body text-center">
+                        <div class="my-2">
+                            <button id="view-faculty" class="btn btn-outline-primary">
+                                <span>Facultades</span>
+                            </button>
+                            <button id="view-speciality" class="btn btn-outline-primary">
+                                <span>Especialidades</span>
+                            </button>
+                        </div>
+                        <div class="d-flex">
+                            <div id="first-card" class="card border-dark mb-3 mx-2" style="max-width: 22rem;">
+                                <div class="card-header">Facultades</div>
+                                <div class="card-body text-dark">
+                                    <div class="card-text">
+                                        <p>INGENIERIA DE PETROLEO, GAS NATURAL Y PETROQUIMICA</p>
+                                        <p>INGENIERIA INDUSTRIAL Y DE SISTEMAS</p>
+                                        <p>INGENIERIA MECÁNICA</p>
+                                        <p>INGENIERIA QUÍMICA Y TEXTIL</p>
+                                        <p>ARQUITECTURA, URBANISMO Y ARTES</p>
+                                        <p>INGENIERIA CIVIL</p>
+                                        <p>CIENCIAS</p>
+                                        <p>INGENIERIA ELECTRICA Y ELECTRONICA</p>
+                                        <p>INGENIERIA GEOLOGICA, MINERA Y METALURGICA</p>
+                                        <p>INGENIERIA ECONOMICA, ESTADISTICA Y CIENCIAS SOCIALES</p>
+                                        <p>INGENIERIA AMBIENTAL</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="second-card" class="card border-dark mb-3 mx-2" style="max-width: 22rem;">
+                                <div class="card-header">Especialidades</div>
+                                <div class="card-body text-dark">
+                                    <div class="card-text d-flex flex-column align-items-center justify-content-center">
+                                        <span>ARQUITECTURA</span>
+                                        <span>INGENIERIA CIVIL</span>
+                                        <span>INGENIERIA ECONOMICA</span>
+                                        <span>INGENIERIA ESTADISTICA</span>
+                                        <span>INGENIERIA GEOLOGICA</span>
+                                        <span>INGENIERIA METALURGICA</span>
+                                        <span>INGENIERIA DE MINAS</span>
+                                        <span>INGENIERIA INDUSTRIAL</span>
+                                        <span>INGENIERIA DE SISTEMAS</span>
+                                        <span>INGENIERIA ELECTRICA</span>
+                                        <span>INGENIERIA ELECTRONICA</span>
+                                        <span>INGENIERIA DE TELECOMUNICACIONES</span>
+                                        <span>INGENIERIA MECANICA</span>
+                                        <span>INGENIERIA MECANICA Y ELECTRICA</span>
+                                        <span>INGENIERIA NAVAL</span>
+                                        <span>INGENIERIA MECATRONICA</span>
+                                        <span>FISICA</span>
+                                        <span>MATEMATICA</span>
+                                        <span>QUIMICA</span>
+                                        <span>INGENIERIA FISICA</span>
+                                        <span>CIENCIA DE LA COMPUTACION</span>
+                                        <span>INGENIERIA PETROQUIMICA</span>
+                                        <span>INGENIERIA DE PETROLEO Y GAS NATURAL</span>
+                                        <span>INGENIERIA QUIMICA</span>
+                                        <span>INGENIERIA TEXTIL</span>
+                                        <span>INGENIERIA SANITARIA</span>
+                                        <span>INGENIERIA DE HIGIENE Y SEGURIDAD INDUSTRIAL</span>
+                                        <span>INGENIERIA AMBIENTAL</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </main>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="../js/logout.js"></script>
-    <script src="../js/sidebar.js"></script>
+    <script src="../js/jquery.js"></script>
 </body>
 
 </html>

@@ -1,31 +1,39 @@
 'use strict'
 
-var dataStudents = [];
+const dataStudents = [];
 let dataSt = [];
 let students;
+
+let initial = 0;
+let final = 10;
 
 const buttonSave = document.getElementById('btnSearch');
 
 const getStudents = async () => {
-    const api = await fetch(`https://studentsapi-76cc7-default-rtdb.firebaseio.com/students.json`);
-    const data = await api.json();
 
-    data.forEach(student => {
-        if (student != null) {
-            const st = new BuscadorAlumnos(student.id_uni,
-                student.surname,
-                student.second_surname,
-                student.names,
-                student.faculty[1],
-                student.speciality[1],
-                student.cycle_relative,
-                student.approved_credits,
-                student.condition,
-                student.disciplinary_condition,
-                student.photo)
-            dataStudents.push(st);
-        }
-    });
+    await axios({
+        method: "get",
+        url: 'https://studentsapi-76cc7-default-rtdb.firebaseio.com/students.json'
+    }).then(response => {
+        const data = response.data;
+
+        data.map(student => {
+            if (student != null) {
+                const st = new BuscadorAlumnos(student.id_uni,
+                    student.surname,
+                    student.second_surname,
+                    student.names,
+                    student.faculty[1],
+                    student.speciality[1],
+                    student.cycle_relative,
+                    student.approved_credits,
+                    student.condition,
+                    student.disciplinary_condition,
+                    student.photo)
+                dataStudents.push(st);
+            }
+        })
+    })
 
     viewDataStudents();
 }
@@ -44,19 +52,18 @@ const viewDataStudents = () => {
     students = '';
 
     if (id == "" && surname == "" && second_surname == "" && names == "" && speciality == "") {
-        dataStudents.forEach((student, i) => {
-            if (i < 10) {
-                students += `
+        for(let i = initial; i < final; i++){
+            students += `
                 <tr>
-                    <td class="text-center">${student.idUni}</td>
-                    <td class="text-center">${student.surname + " " + student.secondSurname}</td>
-                    <td class="text-center">${student.names}</td>
-                    <td class="text-center">${student.speciality}</td>
-                    <td class="text-center">${student.cycleRelative}</td>
-                    <td><a data-bs-toggle="modal" href="#viewDetailStudent" role="button" onclick="viewDetailStudent('${student.idUni}')" class="btn btn-dark fw-bold btn-small text-center">Ver más</a></td>
+                    <td class="text-center">${i + 1}</td>
+                    <td class="text-center">${dataStudents[i].idUni}</td>
+                    <td class="text-center">${dataStudents[i].surname + " " + dataStudents[i].secondSurname}</td>
+                    <td class="text-center">${dataStudents[i].names}</td>
+                    <td class="text-center">${dataStudents[i].speciality}</td>
+                    <td class="text-center">${dataStudents[i].cycleRelative}</td>
+                    <td><a data-bs-toggle="modal" href="#viewDetailStudent" role="button" onclick="viewDetailStudent('${dataStudents[i].idUni}')" class="btn btn-dark fw-bold btn-small text-center">Ver más</a></td>
                 <tr>`
-            }
-        });
+        };
 
         document.getElementById('dataStudents').insertAdjacentHTML("afterbegin", students);
     }
@@ -78,7 +85,7 @@ const viewDataStudent = () => {
         <tr>`
     });
 
-    document.getElementById('dataStudents').insertAdjacentHTML("afterbegin", students);
+    document.getElementById('dataStudents').insertAdjacentHTML("beforeend", students);
 }
 
 const searchStudents = (event) => {
@@ -109,9 +116,9 @@ const searchStudents = (event) => {
         } else {
             document.getElementById('dataStudents').innerHTML = '';
             const result = `<tr class="text-center fw-bold">
-            <td colspan="6">No se encontraron resultados para la consulta realizada</td>
+            <td colspan="7">No se encontraron resultados para la consulta realizada</td>
             </tr>`;
-            document.getElementById('dataStudents').insertAdjacentHTML("afterbegin", result);
+            document.getElementById('dataStudents').insertAdjacentHTML("beforeend", result);
         }
         document.getElementById('frmRegisterStudents').reset();
     } else {
@@ -165,13 +172,31 @@ const viewDetailStudent = (id_uni) => {
             <td class="py-md-0 f-size">${stdInfo.disciplinaryCondition}</td>
         </tr>
     `
-
     document.querySelector('#imageStudent').insertAdjacentHTML("afterbegin", studentImage);
     document.querySelector('#detailStudent').insertAdjacentHTML("afterbegin", studentInformation);
-    
-    console.log('Hola!')
 }
 
-buttonSave.addEventListener('click', searchStudents);
+// buttonSave.addEventListener('click', searchStudents);
 
-window.addEventListener('load', getStudents);
+$(document).ready(() => {
+
+    $(window).on('load', getStudents);
+
+    $('#btnSearch').on('click', searchStudents);
+
+    $('#previous').on('click', () => {
+        if(initial > 0){
+            initial -= 10;
+            final -= 10;
+            viewDataStudents();
+        }
+    });
+    
+    $('#next').on('click', () => {
+        if(initial <= dataStudents.length - 10){
+            initial += 10;
+            final +=10;
+            viewDataStudents();
+        }
+    });
+});

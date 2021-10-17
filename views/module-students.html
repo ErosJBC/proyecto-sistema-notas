@@ -19,7 +19,6 @@
 
 <body>
     <div id="sidebar" class="sidebar bg-dark-header">
-        <!-- Sidebar content -->
         <div class="sidebar-header">
             <div class="py-4 d-flex flex-column align-items-center justify-content-center">
                 <div class="user_image py-2">
@@ -33,10 +32,10 @@
         </div>
         <div class="sidebar-body">
             <ul class="navbar-nav">
-                <li class="nav-item"><a class="nav-link text-white p-3 w-100 sidebar-item d-flex align-items-center"
+                <li id="dashboard" class="nav-item"><a class="nav-link text-white p-3 w-100 sidebar-item d-flex align-items-center"
                         href="../views/dashboard.html"><i class="bi bi-grid-3x3-gap-fill mx-2 fs-5"></i><span
                             class="mx-3">Dashboard</span></a></li>
-                <li class="nav-item"><a class="nav-link text-white p-3 w-100 sidebar-item d-flex align-items-center"
+                <li class="nav-item"><a id="students" class="nav-link text-white p-3 w-100 sidebar-item d-flex align-items-center"
                         href="../views/module-students.html"><i class="bi bi-person-fill mx-2 fs-5"></i><span
                             class="mx-3">Alumnos</span></a>
                 </li>
@@ -94,10 +93,10 @@
                     </div>
                 </div>
             </div>
-            <div class="">
+            <div id="search-students">
                 <div class="row">
                     <div class="card-header">
-                        <h2 class="text-center fs-2">Buscador de Alumnos</p>
+                        <h2 id="tittle-card" class="text-center fs-2">Buscador de Alumnos</p>
                     </div>
                 </div>
                 <div class="row card-body">
@@ -129,9 +128,10 @@
                     </form>
                 </div>
                 <div class="row card-body">
-                    <table class="table table-hover table-responsive-md align-middle">
+                    <table id="tableStudents" class="table table-hover table-responsive-md align-middle">
                         <thead class="table-dark">
                             <tr>
+                                <th scope="col" class="text-center">N°</td>
                                 <th scope="col" class="text-center">Código</td>
                                 <th scope="col" class="text-center">Apellidos</td>
                                 <th scope="col" class="text-center">Nombres</td>
@@ -143,6 +143,23 @@
                         <tbody id="dataStudents">
 
                         </tbody>
+                        <tfoot class="table-dark">
+                            <tr>
+                                <td colspan="7">
+                                    <div class="d-flex justify-content-between">
+                                        <span id="text-footer"></span>
+                                        <div>
+                                            <button id="previous" class="btn btn-light btn-mode mx-2">
+                                                <span>Anterior</span>
+                                            </button>
+                                            <button id="next" class="btn btn-light btn-mode mx-2">
+                                                <span>Siguiente</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tfoot>
                     </table>
                     <div class="modal fade" id="viewDetailStudent" aria-hidden="true"
                         aria-labelledby="exampleModalToggleLabel" tabindex="-1">
@@ -178,14 +195,14 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="../js/logout.js"></script>
     <script src="../js/BuscadorAlumnos.js"></script>
     <script src="../js/search.js"></script>
-    <script src="../js/sidebar.js"></script>
+    <script src="../js/jquery.js"></script>
 </body>
 
 </html>
