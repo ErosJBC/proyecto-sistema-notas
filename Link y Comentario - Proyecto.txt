@@ -1,9 +1,0 @@
-Buenas noches, profesor!
-
-Mejoré algunas partes de mi login. Modifique las validaciones. Puede probar con los inputs. Solo pude implementar algunas animaciones en el módulo
-de dashboard, la verdad no he tenido una idea clara para completar las animaciones, a parte que lo intenté pero no me salía.
-La tabla de estudiante ya es navegable. Se puede avanzar y a la vez retroceder.
-
-Gracias!
-
-Link en la web: https://sistemadenotas.carpinteriayservicios.com/

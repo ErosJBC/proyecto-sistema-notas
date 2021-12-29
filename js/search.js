@@ -90,13 +90,13 @@ const viewDataStudent = () => {
 
 const searchStudents = (event) => {
     event.preventDefault();
-    dataSt = []
+   dataSt = []
     const frmStudents = document.forms['frmRegisterStudents'];
     const id = frmStudents['inputId'].value.toUpperCase();
     const surname = frmStudents['inputSurname'].value.toUpperCase();
     const second_surname = frmStudents['inputSecondSurname'].value.toUpperCase();
     const names = frmStudents['inputNames'].value.toUpperCase();
-    const speciality = frmStudents['inputSpeciality'].value.toUpperCase();
+    const speciality = frmStudents['inputSpeciality'].value.toUpperCase(); 
 
     if (id != '' || surname != '' || second_surname != '' || names != '' || speciality != '') {
         const std = dataStudents.filter(ds => {
