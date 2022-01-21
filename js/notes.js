@@ -62,7 +62,7 @@ const registerStudentsNotes = (event) => {
         // const studentCalification = new RegistroNotas(id, lastName, name, curse, notasPC, parseInt(EP), parseInt(EF))
         // dataStudentsNotes.push(studentCalification);
         document.getElementById('frmRegisterStudentsNotes').reset();
-        alert('Notas registradas existosamente')
+        alert('Notas registradas exitosamente')
     } else {
         alert('Complete todos los campos')
     }

@@ -10,6 +10,34 @@ let final = 10;
 const buttonSave = document.getElementById('btnSearch');
 
 const getStudents = async () => {
+    const url = 'https://students-api-01-default-rtdb.asia-southeast1.firebasedatabase.app/students.json'
+    await $.get(url, (response, status) => {
+        const data = response;
+        if(status === 'success'){
+            data.map(student => {
+                if (student != null) {
+                    const st = new BuscadorAlumnos(student.id_uni,
+                        student.surname,
+                        student.second_surname,
+                        student.names,
+                        student.faculty[1],
+                        student.speciality[1],
+                        student.cycle_relative,
+                        student.approved_credits,
+                        student.condition,
+                        student.disciplinary_condition,
+                        student.photo)
+                    dataStudents.push(st);
+                }
+            })
+        }else{
+            console.log('No se logró cargar los datos');
+        }
+    })
+    viewDataStudents();
+}
+
+/* const getStudents = async () => {
 
     await axios({
         method: "get",
@@ -36,7 +64,7 @@ const getStudents = async () => {
     })
 
     viewDataStudents();
-}
+} */
 
 const viewDataStudents = () => {
 
@@ -90,7 +118,7 @@ const viewDataStudent = () => {
 
 const searchStudents = (event) => {
     event.preventDefault();
-   dataSt = []
+    dataSt = []
     const frmStudents = document.forms['frmRegisterStudents'];
     const id = frmStudents['inputId'].value.toUpperCase();
     const surname = frmStudents['inputSurname'].value.toUpperCase();

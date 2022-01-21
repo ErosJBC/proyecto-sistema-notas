@@ -33,7 +33,7 @@ const redirectIndex = () => {
     window.location.href = './index.html';
 };
 
-const getUser = async (username, password) => {
+/* const getUser = async (username, password) => {
     await axios({
         method: 'get',
         url: 'https://userdb-01-default-rtdb.firebaseio.com/users.json'
@@ -53,6 +53,49 @@ const getUser = async (username, password) => {
             }
         });
     }).catch(err => console.log(err));
+
+    const validateUser = dataUsers.find(du => {return du.username == username});
+    if(validateUser != null){
+        if(validateUser.active == 1){
+            if(validateUser.username == username && validateUser.password == password){
+                redirectDashboard()
+            }else {
+                alert("Usuario o contraseña incorrecta. Vuelva a ingresar sus credenciales");
+                redirectIndex();
+            }
+        }else{
+            alert("El usuario se encuentra deshabilitado");
+            redirectIndex();
+        }
+    }else {
+        alert("No existe el usuario en el sistema");
+        redirectIndex();
+    }
+}; */
+
+const getUser = async (username, password) => {
+    const url = 'https://userdb-01-default-rtdb.firebaseio.com/users.json'
+    await $.get(url, (response, status) => {
+        const users = response;
+        console.log(users);
+        if (status === 'success'){
+            users.map(user => {
+                if (user != null) {
+                    const usr = new Usuario(user.id_user,
+                        user.user,
+                        user.password,
+                        user.active,
+                        user.create_date,
+                        user.update_date
+                    )
+                    dataUsers.push(usr)
+                }
+            });
+        }else{
+            console.log('No se logró cargar los datos')
+        }
+
+    });
 
     const validateUser = dataUsers.find(du => {return du.username == username});
     if(validateUser != null){
