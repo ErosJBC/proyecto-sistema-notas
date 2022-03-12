@@ -95,10 +95,8 @@ def getStudents(url_id, url_photo):
                         "disciplinary_condition" : "NO TIENE",
                         "photo" : url_photo + d.get('codigo') + '.jpg'
                     }
-
                     dictionaryStudents.append(registro)
             else: break
-
         jsonDic = json.dumps(dictionaryStudents)
         file.write(jsonDic)
         file.close()
