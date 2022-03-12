@@ -101,9 +101,10 @@ const viewDataStudent = () => {
 
     document.getElementById('dataStudents').innerHTML = '';
     students = '';
-    dataSt.forEach((st) => {
+    dataSt.forEach((st, i) => {
         students += `
         <tr>
+            <td class="text-center">${i + 1}</td>
             <td class="text-center">${st.idUni}</td>
             <td class="text-center">${st.surname + " " + st.secondSurname}</td>
             <td class="text-center">${st.names}</td>
