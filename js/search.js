@@ -101,18 +101,18 @@ const viewDataStudent = () => {
 
     document.getElementById('dataStudents').innerHTML = '';
     students = '';
-    dataSt.forEach((st, i) => {
+    for(let i = initial; i < final; i++){
         students += `
         <tr>
             <td class="text-center">${i + 1}</td>
-            <td class="text-center">${st.idUni}</td>
-            <td class="text-center">${st.surname + " " + st.secondSurname}</td>
-            <td class="text-center">${st.names}</td>
-            <td class="text-center">${st.speciality}</td>
-            <td class="text-center">${st.cycleRelative}</td>
-            <td><a data-bs-toggle="modal" href="#viewDetailStudent" role="button" onclick="viewDetailStudent('${st.idUni}')" class="btn btn-dark fw-bold btn-small text-center">Ver más</a></td>
+            <td class="text-center">${dataSt[i].idUni}</td>
+            <td class="text-center">${dataSt[i].surname + " " + dataSt[i].secondSurname}</td>
+            <td class="text-center">${dataSt[i].names}</td>
+            <td class="text-center">${dataSt[i].speciality}</td>
+            <td class="text-center">${dataSt[i].cycleRelative}</td>
+            <td><a data-bs-toggle="modal" href="#viewDetailStudent" role="button" onclick="viewDetailStudent('${dataSt[i].idUni}')" class="btn btn-dark fw-bold btn-small text-center">Ver más</a></td>
         <tr>`
-    });
+    }
 
     document.getElementById('dataStudents').insertAdjacentHTML("beforeend", students);
 }
