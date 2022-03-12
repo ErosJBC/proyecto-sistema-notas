@@ -34,7 +34,7 @@ class BuscadorAlumnos {
     get surname() {
         return this._surname;
     }
-    set surname(surname) {
+    set surname(second_surname) {
         this._surname = surname;
     }
 
